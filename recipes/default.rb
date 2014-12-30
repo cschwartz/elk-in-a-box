@@ -4,7 +4,8 @@
 #
 # Copyright (C) 2014 Christian Schwartz
 #
-# All rights reserved - Do Not Redistribute
+# This cookbook is licensed under the MIT license.
+# For the full license see github.com/cschwartz/elk-in-a-box/LICENSE
 #
 
 prefix = node['elk-in-a-box']['prefix']

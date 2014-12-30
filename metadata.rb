@@ -1,0 +1,7 @@
+name             'elk-in-a-box'
+maintainer       'YOUR_NAME'
+maintainer_email 'YOUR_EMAIL'
+license          'All rights reserved'
+description      'Installs and configures elk-in-a-box, a small ELK stack for on-the-fly data analytics.'
+long_description 'Installs/Configures elk-in-a-box'
+version          '0.1.0'

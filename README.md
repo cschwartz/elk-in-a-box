@@ -4,7 +4,7 @@ TODO: Enter the cookbook description here.
 
 ## Supported Platforms
 
-TODO: List your supported platforms.
+* ubuntu-12.04
 
 ## Attributes
 
@@ -16,10 +16,22 @@ TODO: List your supported platforms.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['elk-in-a-box']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt>['elk-in-a-box']['prefix']</tt></td>
+    <td>String</td>
+    <td>Prefix for the ELK-stack installation</td>
+    <td><tt>/opt/elk-in-a-box</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['elk-in-a-box']['user']</tt></td>
+    <td>String</td>
+    <td>User for running the ELK services</td>
+    <td><tt>logstash</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['elk-in-a-box']['group']</tt></td>
+    <td>String</td>
+    <td>Group for running the ELK services</td>
+    <td><tt>logstash</tt></td>
   </tr>
 </table>
 
@@ -39,4 +51,4 @@ Include `elk-in-a-box` in your node's `run_list`:
 
 ## License and Authors
 
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+Author:: Christian Schwartz (christian.schwartz@gmail.com)

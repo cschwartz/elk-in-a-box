@@ -8,12 +8,11 @@ provisioner:
 
 platforms:
   - name: ubuntu-12.04
-    driver_config:
-      network:
-      - ["forwarded_port", {guest: 80, host: 8080}]
-      - ["forwarded_port", {guest: 5601, host: 5601}]
-      - ["forwarded_port", {guest: 9200, host: 9200}]
+
 suites:
   - name: default
-    run_list: elk-in-a-box::default
+    run_list: elk-in-a-box-tests::default
+    attributes:
+  - name: simple-example
+    run_list: elk-in-a-box-simple-example::default
     attributes:

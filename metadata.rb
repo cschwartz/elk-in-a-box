@@ -5,3 +5,6 @@ license          'MIT'
 description      'Installs and configures elk-in-a-box, a small ELK stack for on-the-fly data analytics.'
 long_description 'Installs/Configures elk-in-a-box'
 version          '0.1.0'
+
+depends 'apt'
+depends 'java'

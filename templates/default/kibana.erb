@@ -1,0 +1,65 @@
+#! /bin/bash
+### BEGIN INIT INFO
+# Provides:          kibana
+# Required-Start:    $all
+# Required-Stop:     $all
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Starts kibana
+# Description:       Starts kibana using start-stop-daemon
+### END INIT INFO
+
+. /lib/lsb/init-functions
+
+USER=<%= @user %>
+JAVA_HOME=/usr/bin/java
+
+NAME=kibana
+DESC=kibana
+KIBANA_HOME=<%= @home %>
+PID_FILE=$KIBANA_HOME/$NAME.pid
+DAEMON=$KIBANA_HOME/bin/kibana
+
+start () {
+  log_daemon_msg "Starting $NAME"
+
+  if start-stop-daemon --background --start --make-pidfile --pidfile $PID_FILE --user $USER --chuid $USER --startas $DAEMON; then
+    log_end_msg 0
+  else
+    log_end_msg 1
+  fi
+}
+
+stop () {
+  log_daemon_msg "Stopping $NAME"
+  start-stop-daemon --stop --pidfile $PID_FILE
+}
+
+status () {
+  status_of_proc -p $PID_FILE "" "$NAME"
+}
+
+case "$1" in
+  start)
+    if status; then exit 0; fi
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  restart|force-reload)
+    stop
+    sleep 2
+    start
+    ;;
+  status)
+    status && exit 0 || exit $?
+    ;;
+  *)
+    N=/etc/init.d/$NAME
+    echo "Usage: $N {start|stop|restart|force-reload|status}" >&2
+    exit 1
+    ;;
+esac
+
+exit 0
